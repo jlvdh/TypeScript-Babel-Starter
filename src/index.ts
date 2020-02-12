@@ -1,13 +1,13 @@
 import app from './app'
 
-const { 
+const {
   PORT = 3000
-} = process.env;
+} = process.env
 
 if (require.main === module) {
   app.listen(PORT, () => {
-    console.log('App started at http://localhost:'+PORT);
-  });
+    console.log('App started at http://localhost:'+PORT)
+  })
 }
 
 export default app

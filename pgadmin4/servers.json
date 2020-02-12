@@ -1,0 +1,14 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "api dev",
+            "Group": "api servers",
+            "Port": 5432,
+            "Username": "api",
+            "Password": "pass",
+            "Host": "db",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "postgres"
+        }
+    }
+}
