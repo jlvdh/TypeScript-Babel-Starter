@@ -1,8 +1,13 @@
-export class C {
-    private x = 10;
-    getX = () => this.x;
-    setX = (newVal: number) => { this.x = newVal; }
+import app from './app'
+
+const { 
+  PORT = 3000
+} = process.env;
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log('App started at http://localhost:'+PORT);
+  });
 }
 
-export let x = new C();
-export let y = { ...{ some: "value" } };
+export default app
