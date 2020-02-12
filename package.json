@@ -3,16 +3,20 @@
   "version": "0.7.2",
   "license": "MIT",
   "scripts": {
-    "start:dev": "concurrently \"npm:run:dev\" \"npm:pm2:logs\" \"npm:build:watch\"",
+    "start:dev": "concurrently \"npm:build:watch\" \"npm:run:dev\" \"npm:pm2:logs\"",
     "run:dev": "pm2 start ecosystem.config.js",
     "pm2:logs": "pm2 logs",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
-    "build:watch": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline --watch",
-    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
-    "test": "jest"
+    "build:watch": "babel src --out-dir lib --extensions \".ts,.tsx,.js\" --source-maps inline --watch",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx,.js\" --source-maps inline",
+    "test": "jest",
+    "migrate-seed": "knex migrate:latest --knexfile db/knexfile.js && knex seed:run --knexfile db/knexfile.js",
+    "migrate": "docker-compose run --rm api npx knex migrate:latest",
+    "rollback": "docker-compose run --rm api npx knex migrate:rollback",
+    "seed": "docker-compose run --rm api npx knex seed:run"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",

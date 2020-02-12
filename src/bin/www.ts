@@ -1,4 +1,4 @@
-import app from './app'
+import app from '../routes/app'
 
 const {
   PORT = 3000
@@ -6,7 +6,7 @@ const {
 
 if (require.main === module) {
   app.listen(PORT, () => {
-    console.log('App started at http://localhost:'+PORT)
+    console.log('App started at http://localhost:' + PORT)
   })
 }
 
