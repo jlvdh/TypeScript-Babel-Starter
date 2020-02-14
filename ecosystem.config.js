@@ -3,7 +3,7 @@ module.exports = {
     name: 'API',
     script: 'lib/bin/www.js',
     // Options reference: https://pm2.keymetrics.io/docs/usage/application-declaration/
-    args: 'one two',
+    interpreter_args: '-r source-map-support/register',
     instances: 1,
     autorestart: true,
     watch: ['lib'],

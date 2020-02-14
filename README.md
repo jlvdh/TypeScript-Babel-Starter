@@ -1,5 +1,12 @@
 # TypeScript-Babel-Starter
 
+# ADDED IN THIS FORK
+
+* docker
+* eslint
+* objection
+* jest
+
 # What is this?
 
 This is a small sample repository that uses Babel to transform TypeScript to plain JavaScript, and uses TypeScript for type-checking.
