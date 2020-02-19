@@ -1,15 +1,15 @@
-import fetch from 'node-fetch'
-import Search from '../types/Search'
+import Searcher from './Searcher'
 
-const HACKERNEWS_SEARCH_ENDPOINT = 'http://hn.algolia.com/api/v1/search'
-
-export default (search: Search) => {
-  return new Promise((resolve, reject) => {
-    fetch(`${HACKERNEWS_SEARCH_ENDPOINT}?query=${search.query}`)
-      .then(res => res.json())
-      .then((result: Object) => {
-        resolve(result)
-      })
-      .catch(reject)
-  })
+const searchObject = {
+  headers: { },
+  endpoint: 'http://hn.algolia.com/api/v1/search',
+  queryString: '?query=',
+  resultMap: ['hits'],
+  objectMapper: {
+    title: ['title'],
+    description: [],
+    url: ['url']
+  }
 }
+
+export default new Searcher(searchObject)

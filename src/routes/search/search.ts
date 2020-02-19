@@ -10,10 +10,10 @@ router.get('/', async (req: Request, res: Response) => {
     const search = {
       query: query
     }
-    const bingResult = await bing(search)
-    const hnResult = await hn(search)
+    const bingResult = await bing.createResults(search.query)
+    const hnResult = await hn.createResults(search.query)
 
-    res.json([bingResult, hnResult])
+    res.json([...bingResult, ...hnResult])
   } catch (e) {
     console.log(e)
   }
