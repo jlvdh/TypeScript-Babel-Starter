@@ -1,5 +1,3 @@
-// import fetch from 'node-fetch'
-// import Search from '../types/Search'
 import Searcher from './Searcher'
 
 declare var process : {
